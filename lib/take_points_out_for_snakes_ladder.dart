@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+Offset px;
+Offset p0;
 Offset p1;
 Offset p2;
 Offset p3;
@@ -41,20 +43,22 @@ Offset p38;
 Offset p39;
 Offset p40;
 takeOutPoint(list) {
+  px = findPosOfEachSquare(8, list);
+  p0 = findPosOfEachSquare(99, list);
   p1 = findPosOfEachSquare(6, list);
   p2 = findPosOfEachSquare(28, list);
   p3 = findPosOfEachSquare(30, list);
   p4 = findPosOfEachSquare(41, list);
   p5 = findPosOfEachSquare(38, list);
   p6 = findPosOfEachSquare(74, list);
-  // p7 = findPosOfEachSquare(35, list);
-  // p8 = findPosOfEachSquare(53, list);
+  p7 = findPosOfEachSquare(14, list);
+  p8 = findPosOfEachSquare(32, list);
   p9 = findPosOfEachSquare(70, list);
   p10 = findPosOfEachSquare(81, list);
-  // p11 = findPosOfEachSquare(22, list);
-  // p12 = findPosOfEachSquare(77, list);
-  // p13 = findPosOfEachSquare(50, list);
-  // p14 = findPosOfEachSquare(80, list);
+  p11 = findPosOfEachSquare(53, list);
+  p12 = findPosOfEachSquare(73, list);
+  p13 = findPosOfEachSquare(10, list);
+  p14 = findPosOfEachSquare(20, list);
   // p15 = findPosOfEachSquare(57, list);
   // p16 = findPosOfEachSquare(68, list);
   p17 = findPosOfEachSquare(33, list);
@@ -62,7 +66,7 @@ takeOutPoint(list) {
   p19 = findPosOfEachSquare(49, list);
   p20 = findPosOfEachSquare(68, list);
 
-  //Snakes
+  // //Snakes
   p21 = findPosOfEachSquare(37, list);
   p22 = findPosOfEachSquare(4, list);
   p23 = findPosOfEachSquare(98, list);
@@ -75,14 +79,15 @@ takeOutPoint(list) {
   p30 = findPosOfEachSquare(9, list);
   p31 = findPosOfEachSquare(72, list);
   p32 = findPosOfEachSquare(42, list);
-  // p33 = findPosOfEachSquare(58, list);
-  // p34 = findPosOfEachSquare(42, list);
-  // p35 = findPosOfEachSquare(44, list);
-  // p36 = findPosOfEachSquare(2, list);
-  // p37 = findPosOfEachSquare(24, list);
-  // p38 = findPosOfEachSquare(7, list);
+  p33 = findPosOfEachSquare(25, list);
+  p34 = findPosOfEachSquare(7, list);
+  p35 = findPosOfEachSquare(60, list);
+  p36 = findPosOfEachSquare(51, list);
+  p37 = findPosOfEachSquare(58, list);
+  p38 = findPosOfEachSquare(39, list);
   // p39 = findPosOfEachSquare(91, list);
   // p40 = findPosOfEachSquare(82, list);
+  print("points=> $p1 , $p2");
 }
 
 findPosOfEachSquare(int sqIndex, list) {
@@ -91,5 +96,3 @@ findPosOfEachSquare(int sqIndex, list) {
   print(position);
   return position;
 }
-
-snakeLadderMoves() {}

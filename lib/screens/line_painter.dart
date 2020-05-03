@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
-import 'dart:ui' as ui;
-
-import 'dart:math' as math;
 
 class MyPainter extends CustomPainter {
   Offset point1;
   Offset point2;
-  MyPainter({this.point1, this.point2});
+  Offset pointOrigin;
+  Offset px;
+  MyPainter({this.point1, this.point2, this.pointOrigin, this.px});
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -16,8 +15,8 @@ class MyPainter extends CustomPainter {
       ..color = Colors.grey
       ..strokeWidth = 10;
 
-    canvas.drawLine(
-        Offset(p1.dx + 20, p1.dy), Offset(p2.dx + 20, p2.dy), paint);
+    canvas.drawLine(Offset((p1.dx - px.dx) + 50, (p1.dy - pointOrigin.dy) + 25),
+        Offset((p2.dx - px.dx) + 50, (p2.dy - pointOrigin.dy) + 25), paint);
   }
 
   @override
@@ -29,7 +28,9 @@ class MyPainter extends CustomPainter {
 class SnakePainter extends CustomPainter {
   Offset point1;
   Offset point2;
-  SnakePainter({this.point1, this.point2});
+  Offset pointOrigin;
+  Offset px;
+  SnakePainter({this.point1, this.point2, this.pointOrigin, this.px});
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -39,9 +40,8 @@ class SnakePainter extends CustomPainter {
       ..color = Colors.red[200]
       ..strokeCap = StrokeCap.round
       ..strokeWidth = 10;
-
-    canvas.drawLine(
-        Offset(p1.dx + 20, p1.dy), Offset(p2.dx + 20, p2.dy), paint);
+    canvas.drawLine(Offset((p1.dx - px.dx) + 50, (p1.dy - pointOrigin.dy) + 25),
+        Offset((p2.dx - px.dx) + 50, (p2.dy - pointOrigin.dy) + 25), paint);
   }
 
   @override

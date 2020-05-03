@@ -3,20 +3,20 @@ import 'dart:math';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:snakes_and_ladder/models/game_model.dart';
 
 class DicePage extends StatelessWidget {
-  ValueNotifier valueNotifier;
+  GameModel gameModel;
   String player;
-  DicePage(this.valueNotifier, this.player);
+  DicePage(this.player, this.gameModel);
   void updateDices(DiceModel dice) async {
     for (int i = 0; i < 6; i++) {
       print(i);
       await Future.delayed(const Duration(milliseconds: 300));
       dice.generateDiceOne();
     }
-    valueNotifier.value = "$player ${dice.diceOneCount.toString()}";
-    valueNotifier.notifyListeners();
-    print("object=> ${dice.diceOneCount}");
+    gameModel.diceVal = "$player ${dice.diceOneCount.toString()}";
+    gameModel.gamePlay(gameModel.diceVal);
   }
 
   @override
