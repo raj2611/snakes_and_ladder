@@ -59,12 +59,10 @@ takeOutPoint(list) {
   p12 = findPosOfEachSquare(73, list);
   p13 = findPosOfEachSquare(10, list);
   p14 = findPosOfEachSquare(20, list);
-  // p15 = findPosOfEachSquare(57, list);
-  // p16 = findPosOfEachSquare(68, list);
-  p17 = findPosOfEachSquare(33, list);
-  p18 = findPosOfEachSquare(45, list);
-  p19 = findPosOfEachSquare(49, list);
-  p20 = findPosOfEachSquare(68, list);
+  p15 = findPosOfEachSquare(33, list);
+  p16 = findPosOfEachSquare(45, list);
+  p17 = findPosOfEachSquare(49, list);
+  p18 = findPosOfEachSquare(68, list);
 
   // //Snakes
   p21 = findPosOfEachSquare(37, list);
@@ -90,6 +88,50 @@ takeOutPoint(list) {
   print("points=> $p1 , $p2");
 }
 
+List ladderPointsA = [
+  p1,
+  p3,
+  p5,
+  p7,
+  p9,
+  p11,
+  p13,
+  p15,
+  p17,
+];
+List ladderPointsB = [
+  p2,
+  p4,
+  p6,
+  p8,
+  p10,
+  p12,
+  p14,
+  p16,
+  p18,
+];
+List snakePointsA = [
+  p21,
+  p23,
+  p25,
+  p27,
+  p29,
+  p31,
+  p33,
+  p35,
+  p37,
+];
+List snakePointsB = [
+  p22,
+  p24,
+  p26,
+  p28,
+  p30,
+  p32,
+  p34,
+  p36,
+  p38,
+];
 findPosOfEachSquare(int sqIndex, list) {
   RenderBox box = list[99 - sqIndex].currentContext.findRenderObject();
   Offset position = box.localToGlobal(Offset.zero);

@@ -28,15 +28,44 @@ class _GamePageState extends State<GamePage> {
       setState(() {
         takeOutPoint(list);
       });
+      laddersRender();
+      snakeRender();
     });
   }
 
-  sizeResponse(size) {}
+  final ladderChildren = <Widget>[];
+  final snakeChildren = <Widget>[];
+  laddersRender() {
+    for (int i = 0; i < ladderPointsA.length; i++) {
+      ladderChildren.add(CustomPaint(
+        size: Size(width, height),
+        painter: MyPainter(
+          point1: ladderPointsA[i],
+          point2: ladderPointsB[i],
+          pointOrigin: p0,
+          px: size.width > 700 ? Offset(0, 0) : px,
+        ),
+      ));
+    }
+  }
+
+  snakeRender() {
+    for (int i = 0; i < snakePointsA.length; i++) {
+      snakeChildren.add(CustomPaint(
+        size: Size(width, height),
+        painter: SnakePainter(
+          point1: snakePointsA[i],
+          point2: snakePointsB[i],
+          pointOrigin: p0,
+          px: size.width > 700 ? Offset(0, 0) : px,
+        ),
+      ));
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     size = MediaQuery.of(context).size;
-
     height = size.height > 700 ? 700 : 300;
     width = size.width > 700 ? 700 : 300;
 
@@ -54,7 +83,7 @@ class _GamePageState extends State<GamePage> {
           ),
         ),
       ),
-      backgroundColor: Color.fromRGBO(217, 136, 128, 1),
+      backgroundColor: Color.fromRGBO(22, 160, 133, 1),
       appBar: AppBar(
         leading: size.width > 700
             ? Container()
@@ -64,7 +93,7 @@ class _GamePageState extends State<GamePage> {
                   scaffoldKey.currentState.openDrawer();
                 },
               ),
-        backgroundColor: Color.fromRGBO(115, 198, 182, 1),
+        backgroundColor: Color.fromRGBO(52, 73, 94, 1.0),
         title: Text(
           "Snakes and Ladder",
           style: TextStyle(
@@ -115,6 +144,9 @@ class _GamePageState extends State<GamePage> {
                           ),
                           itemBuilder: (BuildContext context, int index) {
                             return new Card(
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(0.0),
+                              ),
                               margin: EdgeInsets.all(0),
                               key: list[index],
                               color: (10 <= index && index <= 19) ||
@@ -123,11 +155,11 @@ class _GamePageState extends State<GamePage> {
                                       (70 <= index && index <= 79) ||
                                       (90 <= index && index <= 99)
                                   ? index.isOdd
-                                      ? Colors.white
-                                      : Color.fromRGBO(115, 198, 182, 1)
+                                      ? Color.fromRGBO(193, 144, 96, 1)
+                                      : Color.fromRGBO(33, 45, 60, 1)
                                   : index.isEven
-                                      ? Colors.white
-                                      : Color.fromRGBO(115, 198, 182, 1),
+                                      ? Color.fromRGBO(193, 144, 96, 1)
+                                      : Color.fromRGBO(33, 45, 60, 1),
                               child: ScopedModelDescendant<PlayerModel>(
                                   builder: (context, child, playerModel) {
                                 playerModel.ctx = context;
@@ -169,7 +201,7 @@ class _GamePageState extends State<GamePage> {
                                           ((99 - index) + 1).toString(),
                                           style: TextStyle(
                                               fontSize: 24,
-                                              color: Colors.black),
+                                              color: Colors.white),
                                         ),
                                       ),
                                     ),
@@ -179,213 +211,8 @@ class _GamePageState extends State<GamePage> {
                             );
                           });
                     }),
-                    p1 != null
-                        ? CustomPaint(
-                            size: Size(width, height),
-                            painter: MyPainter(
-                              point1: p1,
-                              point2: p2,
-                              pointOrigin: p0,
-                              px: size.width > 700 ? Offset(0, 0) : px,
-                            ),
-                          )
-                        : SizedBox(),
-                    p3 != null
-                        ? CustomPaint(
-                            size: Size(width, height),
-                            painter: MyPainter(
-                              point1: p3,
-                              point2: p4,
-                              pointOrigin: p0,
-                              px: size.width > 700 ? Offset(0, 0) : px,
-                            ))
-                        : SizedBox(),
-                    p5 != null
-                        ? CustomPaint(
-                            size: Size(width, height),
-                            painter: MyPainter(
-                              point1: p5,
-                              point2: p6,
-                              pointOrigin: p0,
-                              px: size.width > 700 ? Offset(0, 0) : px,
-                            ))
-                        : SizedBox(),
-                    p7 != null
-                        ? CustomPaint(
-                            size: Size(width, height),
-                            painter: MyPainter(
-                              point1: p7,
-                              point2: p8,
-                              pointOrigin: p0,
-                              px: size.width > 700 ? Offset(0, 0) : px,
-                            ))
-                        : SizedBox(),
-                    p9 != null
-                        ? CustomPaint(
-                            size: Size(width, height),
-                            painter: MyPainter(
-                              point1: p9,
-                              point2: p10,
-                              pointOrigin: p0,
-                              px: size.width > 700 ? Offset(0, 0) : px,
-                            ),
-                          )
-                        : SizedBox(),
-                    p11 != null
-                        ? CustomPaint(
-                            size: Size(width, height),
-                            painter: MyPainter(
-                              point1: p11,
-                              point2: p12,
-                              pointOrigin: p0,
-                              px: size.width > 700 ? Offset(0, 0) : px,
-                            ),
-                          )
-                        : SizedBox(),
-                    p13 != null
-                        ? CustomPaint(
-                            size: Size(width, height),
-                            painter: MyPainter(
-                              point1: p13,
-                              point2: p14,
-                              pointOrigin: p0,
-                              px: size.width > 700 ? Offset(0, 0) : px,
-                            ),
-                          )
-                        : SizedBox(),
-                    // p15 != null
-                    //     ? CustomPaint(
-                    //         size: Size(width, height),
-                    //         painter: MyPainter(point1: p15, point2: p1, pointOrigin: p0),
-                    //     size.width > 700 ?  Offset(0, 0):px)
-                    //     : SizedBox(),
-                    p17 != null
-                        ? CustomPaint(
-                            size: Size(width, height),
-                            painter: MyPainter(
-                              point1: p17,
-                              point2: p18,
-                              pointOrigin: p0,
-                              px: size.width > 700 ? Offset(0, 0) : px,
-                            ),
-                          )
-                        : SizedBox(),
-                    p19 != null
-                        ? CustomPaint(
-                            size: Size(width, height),
-                            painter: MyPainter(
-                              point1: p19,
-                              point2: p20,
-                              pointOrigin: p0,
-                              px: size.width > 700 ? Offset(0, 0) : px,
-                            ),
-                          )
-                        : SizedBox(),
-                    p20 != null
-                        ? CustomPaint(
-                            size: Size(width, height),
-                            painter: SnakePainter(
-                              point1: p21,
-                              point2: p22,
-                              pointOrigin: p0,
-                              px: size.width > 700 ? Offset(0, 0) : px,
-                            ),
-                          )
-                        : SizedBox(),
-                    p22 != null
-                        ? CustomPaint(
-                            size: Size(width, height),
-                            painter: SnakePainter(
-                              point1: p23,
-                              point2: p24,
-                              pointOrigin: p0,
-                              px: size.width > 700 ? Offset(0, 0) : px,
-                            ),
-                          )
-                        : SizedBox(),
-                    p24 != null
-                        ? CustomPaint(
-                            size: Size(width, height),
-                            painter: SnakePainter(
-                              point1: p25,
-                              point2: p26,
-                              pointOrigin: p0,
-                              px: size.width > 700 ? Offset(0, 0) : px,
-                            ),
-                          )
-                        : SizedBox(),
-                    p26 != null
-                        ? CustomPaint(
-                            size: Size(width, height),
-                            painter: SnakePainter(
-                              point1: p27,
-                              point2: p28,
-                              pointOrigin: p0,
-                              px: size.width > 700 ? Offset(0, 0) : px,
-                            ),
-                          )
-                        : SizedBox(),
-                    p28 != null
-                        ? CustomPaint(
-                            size: Size(width, height),
-                            painter: SnakePainter(
-                              point1: p29,
-                              point2: p30,
-                              pointOrigin: p0,
-                              px: size.width > 700 ? Offset(0, 0) : px,
-                            ),
-                          )
-                        : SizedBox(),
-                    p30 != null
-                        ? CustomPaint(
-                            size: Size(width, height),
-                            painter: SnakePainter(
-                              point1: p31,
-                              point2: p32,
-                              pointOrigin: p0,
-                              px: size.width > 700 ? Offset(0, 0) : px,
-                            ),
-                          )
-                        : SizedBox(),
-                    p32 != null
-                        ? CustomPaint(
-                            size: Size(width, height),
-                            painter: SnakePainter(
-                              point1: p33,
-                              point2: p34,
-                              pointOrigin: p0,
-                              px: size.width > 700 ? Offset(0, 0) : px,
-                            ),
-                          )
-                        : SizedBox(),
-                    p34 != null
-                        ? CustomPaint(
-                            size: Size(width, height),
-                            painter: SnakePainter(
-                              point1: p35,
-                              point2: p36,
-                              pointOrigin: p0,
-                              px: size.width > 700 ? Offset(0, 0) : px,
-                            ),
-                          )
-                        : SizedBox(),
-                    p36 != null
-                        ? CustomPaint(
-                            size: Size(width, height),
-                            painter: SnakePainter(
-                              point1: p37,
-                              point2: p38,
-                              pointOrigin: p0,
-                              px: size.width > 700 ? Offset(0, 0) : px,
-                            ),
-                          )
-                        : SizedBox(),
-                    // p38 != null
-                    //     ? CustomPaint(
-                    //         size: Size(width, height),
-                    //         painter: SnakePainter(point1: p39, point2: p4),
-                    //       )
-                    //     : SizedBox(),
+                    ...ladderChildren,
+                    ...snakeChildren,
                   ],
                 ),
               ),
