@@ -1,17 +1,6 @@
-# snakes_and_ladder
+# Snakes and ladders game on Flutter web.
 
-A new Flutter project.
+<img src="https://github.com/raj2611/snakes_and_ladder/blob/master/snake-and-ladders.gif" align="left" height="400" width="500" >
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-# snakes_and_ladder
